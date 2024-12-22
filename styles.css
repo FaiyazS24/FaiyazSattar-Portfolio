@@ -1,0 +1,684 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1200;
+    font-size: 18px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(0, 10, 40, 0.8); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+}
+
+nav .logo {
+    font-family: 'Lobster', cursive;
+    font-size: 30px; 
+    color: #ffffff; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav .logo i {
+    font-size: 24px;
+    color: #00aaff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ddd; 
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: relative;
+}
+
+/* Active Section Highlight */
+nav ul li a.active {
+    color: #5ED2E6; 
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+nav ul li a:hover {
+    color: #5ED2E6;
+    text-shadow: 0 0 25px rgba(94, 210, 230, 0.5);
+}
+
+
+.section-divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #5ED2E6, #002244, #5ED2E6);
+    background-size: 300% 100%;
+    animation: gradient-move 10s infinite;
+    margin: 0;
+}
+
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem; 
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.8rem; 
+    margin: 10px 0 20px;
+    color: #00aaff; 
+    display: inline-block;
+}
+
+.hero .typed-text {
+    font-family: 'Abril Fatface', serif;
+    color: #5ED2E6; 
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: #002244;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    margin-left: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(94, 210, 230, 0.5);
+    transition: background-color 0.2s ease, transform 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #5ED2E6;
+    color: #002244;
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(94, 210, 230, 1);
+}
+
+/* Add scroll offset for sections */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* About Section */
+.about {
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    color: #fff;
+    padding: 80px 10%;
+    min-height: 92vh;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+    padding-right: 5%; 
+}
+
+.about-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 20px;
+}
+
+section h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 1px #5ED2E6;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about p .highlight {
+    color: #5ED2E6;
+    font-weight: 600;
+}
+
+/* Larger Round Image */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.about-image img {
+    border-radius: 50%;
+    width: 400px; 
+    height: 400px; 
+    object-fit: cover; 
+    box-shadow: 0 0 15px rgba(94, 210, 230, 0.5);; 
+}
+
+/* Centered Resume Section */
+.resume-container {
+    text-align: center;
+    margin-top: 40px;
+    justify-content: center; /* Center the buttons */
+}
+
+
+.btn {
+    display: inline-block;
+    align-items: center;
+    padding: 12px 25px;
+    background-color: #002244;
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(94, 210, 230, 0.5);
+    transition: background-color 0.2s ease, transform 0.3s ease;
+    position: relative; 
+    margin-top: -30px; 
+}
+
+.btn:hover {
+    background-color: #5ED2E6;
+    color: #002244;
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(94, 210, 230, 1);
+}
+
+.btn i , button i{
+    margin-right: 8px; /* Add space between icon and text */
+    font-size: 1.2rem; /* Slightly larger icon */
+}
+
+/* Credentials Section */
+.credentials-section {
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    min-height: 92vh;
+}
+
+.credentials-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.institution-name {
+    font-size: 1rem;
+    font-weight: 400; 
+    color: #ccc; 
+    font-style: italic; 
+}
+
+.credential-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #002244;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(94, 210, 230, 0.4);
+    padding: 20px;
+    width: 30%;
+    height: 450px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credential-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(94, 210, 230, 1);
+}
+
+.credential-icon {
+    position: relative;
+    width: 120px; 
+    height: 120px;
+    margin: 0 auto 10px;
+    border-radius: 50%; 
+    background: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
+}
+
+.credential-icon img {
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
+    border-radius: 50%;
+    background: white; 
+}
+
+.credential-content h3 {
+    font-size: 1.3rem;
+    color: #5ED2E6;
+    margin: 10px 0;
+}
+
+.credential-date {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.credential-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.credential-skills {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    font-style: italic; 
+}
+
+
+/* Skills Section */
+.skills-section {
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    color: #fff;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.skills-category {
+    margin: 40px 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(94, 210, 230, 0.5); /* Glowing shadow */
+}
+
+.skills-category h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #5ED2E6;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.skill-item {
+    width: 120px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.skill-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Circular Progress Bar */
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#5ED2E6 calc(var(--percent) * 1%), #1e2a38 0%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #5ED2E6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.circle:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(94, 210, 230, 1);
+}
+
+.circle img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #000428;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Projects Section */
+.projects-section {
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    color: #fff;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Space between the cards */
+    justify-content: space-around; /* Center the cards horizontally */
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #002244;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(94, 210, 230, 0.4);
+    padding: 20px;
+    margin-top: 10px;
+    width: 30%;
+    height: 520px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    color: #5ED2E6;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+    margin-bottom: auto; /* Push the button to the bottom */
+}
+
+.project-card .btn {
+    align-self: center; /* Center-align the button */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #002244;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, transform 0.3s ease;
+    margin-top: 10px; /* Add margin for spacing */
+}
+
+.project-card .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(94, 210, 230, 1);
+}
+
+
+.skills-used {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left; /* Align text to the left */
+}
+
+.skills-used strong {
+    font-size: 0.9rem;
+    color: #5ED2E6;
+}
+
+.skill-list {
+    display: inline; /* Ensure the skills are on one line */
+    font-size: 0.95rem;
+    color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.skill-list i {
+    margin-right: 5px; /* Add space after icons */
+    vertical-align: middle; /* Align icons with text */
+}
+
+.project-links {
+    display: flex;
+    justify-content: center; /* Center align the buttons */
+    gap: 10px; /* Add spacing between buttons */
+    margin-top: 15px; /* Ensure spacing from the description */
+}
+
+.project-links .btn {
+    display: flex;
+    align-items: center; /* Vertically align the icon and text */
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    background-color: #002244;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-links .btn:hover {
+    background-color: #5ED2E6;
+    color: #002244;
+    transform: translateY(-3px);
+}
+
+.project-links .btn i {
+    font-size: 1rem; /* Set the icon size */
+    color: inherit; /* Match icon color with text */
+}
+
+.project-card .project-image {
+    width: 100%; /* Ensure the image spans the full width of the card */
+    max-height: 200px; /* Constrain the height to fit within the card */
+    object-fit: cover; /* Cover the space while maintaining aspect ratio */
+    margin: 10px 0; /* Add vertical spacing around the image */
+    border-radius: 10px; /* Add rounded corners for a clean look */
+}
+
+/* Filter Buttons */
+.filter-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #002244;
+    color: #ffffff;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #5ED2E6;
+    color: #002244;
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px rgba(94, 210, 230, 1);
+}
+
+/* Service Section */
+.service-section {
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+    padding: 60px 10%;
+    text-align: center;
+    color: #fff;
+    min-height: 92vh;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.service-box {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(94, 210, 230, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(94, 210, 230, 1);
+}
+
+.service-icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.service-box h3 {
+    font-size: 1.5rem;
+    color: #5ED2E6;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 0;
+    min-height: 85vh; 
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, #000428, #004e92),
+                url('https://www.transparenttextures.com/patterns/cubes.png');
+    background-blend-mode: overlay;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contact-box {
+    display: block; /* Makes the whole box clickable */
+    background-color: #001a33;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    text-decoration: none;
+    color: #00bcd4;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.8);
+    background-color: #5ED2E6;
+    color: #002244;
+}
+
+.contact-icon {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.contact-text {
+    font-size: 1.1rem;
+    word-wrap: break-word;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #121212;
+    color: #fff;
+}
