@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faiyaz Sattar - Portfolio</title>
+    <link rel="icon" href="title 5.png" type="image/png">
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for the Icon -->
@@ -35,15 +36,15 @@
 
     <!-- Hero Section (Home) -->
     <section id="home" class="hero">
-        <h1>Hi, I'm Faiyaz Sattar</h1>
+        <h1 class="name">Hi, I'm Faiyaz Sattar</h1>
         <p>
             <span class="typed-text"></span>
         </p>
         <!-- Resume Section -->
         <div class="resume-container">
             <!-- Download Button -->
-            <a href="Faiyaz's resume.pdf" download="Faiyaz_Sattar_Resume" class="btn"><i class="fas fa-file-pdf"></i>View Resume</a>
-            <button onclick="document.getElementById('about').scrollIntoView();"><i class="fas fa-info-circle"></i>Learn More</button>
+            <a href="Faiyaz's resume.pdf" download="Faiyaz_Sattar_Resume" class="btn view-resume"><i class="fas fa-file-pdf"></i>View Resume</a>
+            <button class="learn-more" onclick="document.getElementById('about').scrollIntoView();"><i class="fas fa-info-circle"></i>Learn More</button>
         </div>
     </section>
 
@@ -77,7 +78,7 @@
 
     <!-- Credentials Section -->
     <section id="credentials" class="credentials-section">
-        <h2>Credentials</h2>
+        <h2 class="section-title">Credentials</h2>
         <div class="credentials-container">
             <!-- Credential 1: Bachelor of Computing Science -->
             <div class="credential-box">
@@ -137,7 +138,7 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
-        <h2>Skills</h2>
+        <h2 class="section-title">Skills</h2>
 
         <!-- Frontend Development -->
         <div class="skills-category">
@@ -244,7 +245,7 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
-        <h2>Projects</h2>
+        <h2 class="section-title">Projects</h2>
 
         <!-- Filter Buttons -->
         <div class="filter-container">
@@ -266,7 +267,10 @@
                 </p>
                 <div class="project-links">
                     <a href="Final Project.pdf" target="_blank" class="btn">
-                        <i class="fas fa-file-pdf"></i> View PDF
+                        <i class="fas fa-file-pdf"></i> View
+                    </a>
+                    <a href="https://github.com/FaiyazS24/IMDB-Rating-Analysis" target="_blank" class="btn">
+                        <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
                 <div class="skills-used">
@@ -288,7 +292,7 @@
                 </p>
                 <div class="project-links">
                     <a href="Group 3 FitBod - Final Project.pdf" target="_blank" class="btn">
-                        <i class="fas fa-file-pdf"></i> View PDF
+                        <i class="fas fa-file-pdf"></i> View
                     </a>
                 </div>
                 <div class="skills-used">
@@ -377,7 +381,7 @@
 
     <!-- Service Section -->
     <section id="service" class="service-section">
-        <h2>My Services</h2>
+        <h2 class="section-title">My Services</h2>
         
         <div class="services-container">
             <!-- Frontend Development -->
@@ -449,7 +453,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
+        <h2 class="section-title">Contact</h2>
         <div class="contact-container">
             <!-- LinkedIn Box -->
             <a href="https://www.linkedin.com/in/faiyazsattar/" target="_blank" class="contact-box">
@@ -555,6 +559,76 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+
+            // Intersection Observer for each section's children
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const elements = entry.target.querySelectorAll(".hidden");
+                            elements.forEach((el, index) => {
+                                // Add delay based on index for staggered effect
+                                setTimeout(() => {
+                                    el.classList.add("visible");
+                                }, index * 200); // Adjust delay as needed
+                            });
+                            observer.unobserve(entry.target); // Stop observing
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1, // Trigger when 10% of the section is visible
+                }
+            );
+
+            // Observe each section
+            sections.forEach((section) => {
+                observer.observe(section);
+
+                // Add 'hidden' class to all child elements initially
+                const children = section.querySelectorAll(".about-content, .about-image, .section-title, .credential-box, .skill-item, .project-card, .service-box, .contact-box, .contact-icon, .filter-btn");
+                children.forEach((child) => {
+                    child.classList.add("hidden");
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const homeSection = document.querySelector("#home");
+            const buttons = homeSection.querySelectorAll(".name, .view-resume, .learn-more");
+
+            // Intersection Observer to trigger button animations
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            buttons.forEach((button, index) => {
+                                setTimeout(() => {
+                                    button.classList.add("slide-up-visible");
+                                    button.classList.remove("slide-up");
+                                }, index * 200); // Stagger animation
+                            });
+                            observer.unobserve(homeSection); // Stop observing
+                        }
+                    });
+                },
+                { threshold: 0.1 } // Trigger when 10% of the section is visible
+            );
+
+            // Add 'slide-up' class to the buttons
+            buttons.forEach((button) => button.classList.add("slide-up"));
+
+            // Observe the home section
+            observer.observe(homeSection);
+        });
+
     </script>
 </body>
 </html>
