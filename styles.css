@@ -149,6 +149,57 @@ nav ul li a:hover {
     box-shadow: 0 0 15px rgba(94, 210, 230, 1);
 }
 
+/* Keyframes for Magical Fade-In Animation */
+@keyframes magicalFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden State for Individual Elements */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 3s ease-out, transform 3s ease-out;
+}
+
+/* Visible State */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyframes for Slide-Up Animation */
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start 20px below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Initial Hidden State */
+.slide-up {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Positioned below */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Visible State */
+.slide-up-visible {
+    opacity: 1;
+    transform: translateY(0); /* Slide to original position */
+    animation: slideUp 0.8s ease-out forwards;
+}
+
 /* Add scroll offset for sections */
 section {
     scroll-margin-top: 80px;
@@ -282,7 +333,7 @@ section h2 {
     box-shadow: 0 0 10px rgba(94, 210, 230, 0.4);
     padding: 20px;
     width: 30%;
-    height: 450px;
+    height: 460px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
