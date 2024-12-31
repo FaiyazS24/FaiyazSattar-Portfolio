@@ -75,6 +75,19 @@ nav ul li a:hover {
     text-shadow: 0 0 25px rgba(94, 210, 230, 0.5);
 }
 
+nav .menu-toggle {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav .menu-toggle.active::after {
+    content: '\\00d7'; /* Unicode for 'X' */
+    font-size: 24px;
+    color: #fff;
+}
+
 
 .section-divider {
     border: none;
@@ -732,4 +745,138 @@ footer {
     padding: 20px;
     background-color: #121212;
     color: #fff;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 10, 40, 0.9);
+        padding: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+    }
+
+    .hero button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .about-content, .about-image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .credentials-container, .skills-grid {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+
+    .credential-box, .skill-item {
+        width: 90%; /* Full width for smaller screens */
+    }
+
+    .credential-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .credential-content h3 {
+        font-size: 1rem; /* Reduce font size */
+    }
+
+    .credential-date, .credential-description {
+        font-size: 0.9rem;
+    }
+
+    .skills-grid {
+        flex-direction: column; /* Stack skills vertically */
+        align-items: center;
+    }
+
+    .skill-item {
+        display: flex;
+        flex-direction: column; /* Stack text and circles vertically */
+        align-items: center; /* Center align content */
+        justify-content: center;
+        width: 100%; /* Full width to align properly */
+        text-align: center;
+    }
+
+    .circle {
+        width: 100px; /* Reduce size for smaller screens */
+        height: 100px;
+    }
+
+    .circle img {
+        width: 40px; /* Adjust icon size */
+        height: 40px;
+    }
+
+    .circle::before {
+        width: 75px; /* Adjust inner circle size */
+        height: 75px;
+    }
+
+    .skill-item p {
+        font-size: 0.9rem; /* Adjust text size */
+    }
+
+    .projects-container, .skills-grid, .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card, .skill-item, .service-box {
+        width: 90%;
+        height: auto;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-box {
+        width: 90%;
+    }
+}
+
+
+@media (min-width: 769px) {
+    nav .menu-toggle {
+        display: none; /* Hide toggle button for larger screens */
+    }
 }
