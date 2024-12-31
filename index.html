@@ -22,8 +22,11 @@
             <i class="fas fa-code"></i> <!-- Font Awesome icon -->
             <a href="#home" class="logo">Faiyaz Sattar</a>
         </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
         <!-- Navigation Links -->
-        <ul>
+        <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#credentials">Credentials</a></li>
@@ -596,6 +599,22 @@
                 });
             });
         });
+
+        function toggleMenu() {
+            const toggleButton = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            // Toggle menu visibility
+            navMenu.classList.toggle('show');
+
+            // Change the toggle button text
+            if (toggleButton.textContent === "☰") {
+                toggleButton.textContent = "✖";
+            } else {
+                toggleButton.textContent = "☰";
+            }
+        }
+
     </script>
 
     <script>
