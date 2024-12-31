@@ -350,7 +350,7 @@
                     This portfolio website was designed and developed to showcase my skills, projects, and experience.
                 </p>
                 <div class="project-links">
-                    <a href="https://faiyazsattar.me" target="_blank" class="btn">
+                    <a href="#home" target="_blank" class="btn live-btn">
                         <i class="fas fa-globe"></i> Live
                     </a>
                     <a href="https://github.com/FaiyazS24/FaiyazSattar-Portfolio" target="_blank" class="btn">
@@ -599,6 +599,12 @@
                 });
             });
         });
+
+        document.querySelector('.live-btn').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default behavior
+            document.querySelector('#home').scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to home
+        });
+
 
         function toggleMenu() {
             const toggleButton = document.querySelector('.menu-toggle');
