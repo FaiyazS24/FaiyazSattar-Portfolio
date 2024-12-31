@@ -779,8 +779,9 @@ footer {
     }
 
     .hero button {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Reduce button size */
         padding: 10px 20px;
+        margin: 10px 0; /* Add vertical spacing between buttons */
     }
 
     .about-container {
